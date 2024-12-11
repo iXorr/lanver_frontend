@@ -3,8 +3,10 @@
   import { RouterLink, RouterView } from 'vue-router';
   import { useIntersectionObserver } from '@vueuse/core';
 
-  import AnimatedWires from './components/AnimatedWires.vue';
+  import AnimatedWires from '@/components/AnimatedWires.vue';
+  import SearchBar from '@/components/ui/SearchBar.vue';
 
+  // пример использования инструмента для анимированного скролла
   const target = ref(null);
   const targetIsVisible = ref(false);
 
@@ -22,6 +24,13 @@
   <div class="root">
     <header>
       <h1>It's APP</h1>
+
+      <div style="display: flex; justify-content: end; margin-right: 50px;">
+        <Transition>
+          <SearchBar />
+        </Transition>
+      </div>
+
       <p class="message">{{ targetIsVisible }}</p>
 
       <nav>
@@ -38,17 +47,19 @@
 </template>
 
 <style scoped>
+  .root {
+    height: 2000px;
+    font-size: 1rem;
+  }
+
   .message {
     position: fixed;
-    right: 0;
+    right: 150px;
     width: 250px;
     height: 100px;
     font-size: 36px;
-    background: red;
-  }
-
-  .root {
-    height: 2000px;
+    color: white;
+    /* background: lightcyan; */
   }
 
   nav {
@@ -56,8 +67,8 @@
     justify-content: space-between;
     align-items: center;
 
-    width: 350px;
-    height: 75px;
+    width: 500px;
+    height: 100px;
     margin: 25px;
     padding: 0 25px;
     background: lightcoral;
@@ -71,10 +82,10 @@
     text-decoration: none;
     color: #000;
 
-    transition: .5s ease-in-out;
+    transition: var(--fast-transition);
   }
 
-  nav > *:hover {
+  nav > *:active{
     transform: scale(1.15);
   }
 </style>

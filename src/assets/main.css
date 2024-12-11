@@ -3,9 +3,26 @@
 *,
 *::before,
 *::after {
+	font-family: Montserrat;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+:root {
+	--fast-transition: .25s ease;
+	--standart-transition: .5s ease-in-out;
+	
+	--icon-size: 30px;
+}
+
+svg {
+	width: var(--icon-size);
+	height: var(--icon-size);
+}
+
+html {
+	font-size: 24px;
 }
 
 html, body {
@@ -13,9 +30,6 @@ html, body {
 }
 
 body {
-  font-family: Montserrat;
-	/* background: #1f1f1f; */
-
 	background: linear-gradient(-45deg, #2E236C, #17153B, #433D8B, #C8ACD6);
 	background-repeat: no-repeat;
 	background-size: 400% 400%;
@@ -33,4 +47,21 @@ body {
 	100% {
 		background-position: 0% 50%;
 	}
+}
+
+input,
+select,
+textarea {
+	outline: none;
+	border: none;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
