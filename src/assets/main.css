@@ -1,0 +1,36 @@
+@import '~/fonts/montserrat.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+  font-family: Montserrat;
+	/* background: #1f1f1f; */
+
+	background: linear-gradient(-45deg, #2E236C, #17153B, #433D8B, #C8ACD6);
+	background-repeat: no-repeat;
+	background-size: 400% 400%;
+	background-attachment: fixed;
+	animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
