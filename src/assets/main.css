@@ -30,14 +30,40 @@ html, body {
 }
 
 body {
-	background: linear-gradient(-45deg, #2E236C, #17153B, #433D8B, #C8ACD6);
+	/* background: linear-gradient(-45deg, #07396f, #674361); */
+	/* background: linear-gradient(-45deg, #2E236C, #17153B, #433D8B, #C8ACD6); */
 	background-repeat: no-repeat;
-	background-size: 400% 400%;
+	background-size: 200% 200%;
 	background-attachment: fixed;
 	animation: gradient 5s ease infinite;
+
+	backdrop-filter: blur(125px);
+	background-image: url("/public/img/bg.png");
 }
 
 @keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+
+	25% {
+		background-position: 50% 25%;
+	}
+
+	50% {
+		background-position: 100% 50%;
+	}
+
+	75% {
+		background-position: 50% 90%;
+	}
+
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+/* @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
 	}
@@ -47,7 +73,7 @@ body {
 	100% {
 		background-position: 0% 50%;
 	}
-}
+} */
 
 input,
 select,
@@ -56,12 +82,45 @@ textarea {
 	border: none;
 }
 
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.5s ease;
+/* vue animations */
+
+.slide-enter-active {
+  animation: slide 0.5s;
+}
+.slide-leave-active {
+  animation: slide 0.5s reverse;
 }
 
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
+@keyframes slide {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+		transform: translateY(0);
+  }
 }
+
+
+
+.fade-enter-active {
+	animation: fade 0.5s;
+}
+
+.fade-leave-active {
+	animation: fade 0.5s reverse;
+}
+
+@keyframes fade {
+	0% {
+		opacity: 0;
+	}
+
+	50% {
+		transform: scale(1.05);
+	}
+  
+	100% {
+		opacity: 1;
+	}
+  }
