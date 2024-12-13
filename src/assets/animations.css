@@ -1,6 +1,4 @@
-/* bg-moving */
-
-@keyframes moving {
+@keyframes bg-moving {
 	0% {
 		background-position: 0% 0%;
 	}
@@ -10,16 +8,6 @@
 	}
 }
 
-/* slide-effect */
-
-.slide-enter-active {
-  animation: slide 0.5s;
-}
-
-.slide-leave-active {
-  animation: slide 0.5s reverse;
-}
-
 @keyframes slide {
   0% {
     transform: translateY(-100%);
@@ -27,22 +15,12 @@
 
   100% {
     transform: translateY(0);
+    opacity: 1;
   }
-}
-
-/* fade-effect */
-
-.fade-enter-active {
-  animation: fade 0.5s;
-}
-
-.fade-leave-active {
-  animation: fade 0.5s reverse;
 }
 
 @keyframes fade {
   0% {
-    opacity: 0;
   }
 
   50% {

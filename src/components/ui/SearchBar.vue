@@ -15,32 +15,11 @@
       type="text"
       placeholder="Введите текст для поиска" 
       :class="['search-bar__field', isInputFocused ? 'search-bar__field--expanded' : null]"
-      @blur="isInputFocused = false"
-      onblur="this.value = null">
-
-    <SearchGlassIcon 
-      :class="['search-bar__submit-icon', isInputFocused ? 'search-bar__submit-icon--showed' : null]" />
+      @blur="isInputFocused = false">
   </div>
 </template>
 
 <style scoped>
-  .search-bar__submit-icon {
-    z-index: 1;
-    position: absolute;
-    right: 2.5%;
-    opacity: 0;
-  }
-
-  .search-bar__submit-icon--showed {
-    opacity: 1;
-    /* animation: name duration timing-function delay iteration-count direction fill-mode; !!! */
-    /* а может, и очередь анимаций сделать через... CSS! */
-  }
-
-    .search-bar__submit-icon * {
-      stroke: #000;
-    }
-
   .search-bar {
     display: flex;
     justify-content: center;
@@ -70,15 +49,19 @@
 
     .search-bar__field {
       position: absolute;
-      font-size: 0.75rem;
+      font-size: 0.9rem;
 
       height: 100%;
       left: 0;
       width: 0;
-      transition: .5s ease-in-out;
-
+      transition: .5s ease-in-out, color .35s ease-in-out;
       color: transparent;
     }
+
+      .search-bar__field::placeholder {
+        color: transparent;
+        transition: color .35s ease-in-out;
+      }
 
     .search-bar__field--expanded {
       color: black;
@@ -86,4 +69,8 @@
       padding-right: 3.5rem;
       padding-left: 2.5rem;
     }
+
+      .search-bar__field--expanded::placeholder {
+        color: rgba(0, 0, 0, 0.5);
+      }
 </style>

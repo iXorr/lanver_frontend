@@ -1,6 +1,5 @@
 @import '~/fonts/montserrat.css';
 @import './animations.css';
-@import './media.css';
 
 *,
 *::before,
@@ -31,12 +30,12 @@ html, body {
 }
 
 	body {
-		background-image: url("/public/img/bg-4.png");
+		background-image: url("~/img/default-bg.png");
 		background-repeat: repeat-y;
 		background-attachment: fixed;
 		backdrop-filter: blur(50px);
 		background-size: cover;
-		animation: moving 35s linear infinite;
+		animation: bg-moving 35s linear infinite;
 		animation-fill-mode: forwards;
 	}
 

@@ -1,45 +1,50 @@
 <script setup>
-  import { ref } from 'vue';
   import { RouterView } from 'vue-router';
 
   import AnimatedWires from '@/components/AnimatedWires.vue';
   import Header from '@/components/common/AppHeader.vue';
-
-  // простая реализация очереди анимаций
-  const firstShow = ref(false);
-  const secondShow = ref(false);
-
-  setTimeout(() => {
-    firstShow.value = true;
-
-    setTimeout(() => {
-      secondShow.value = true;
-    }, 500);
-  }, 500);
 </script>
 
 <template>
-  <main class="root">
-    <Transition name="slide">
-      <Header v-if="firstShow" />
-    </Transition>
+  <div class="root">
+    <Header class="root__header" />
 
-    <section class="content">
-      <Transition name="fade">
-        <RouterView v-if="secondShow" class="router-content" />
-      </Transition>
-    </section>
-  </main>
+    <div class="root__content">
+      <RouterView class="root__content--no-delay" />
+    </div>
+  </div>
 
   <AnimatedWires />
 </template>
 
 <style scoped>
   .root {
+    width: inherit;
+    height: inherit;
     padding: 0 5%;
   }
 
-    .content {
+    .last-block {
+      bottom: 0;
+      position: absolute;
+      width: 100%;
       color: white;
+      background: darkcyan;
+    }
+
+    .root__header {
+      animation: slide .5s .5s forwards;
+      opacity: 0;
+    }
+
+    .root__content {
+      animation: fade .5s 1s forwards;
+      opacity: 0;
+      color: white;
+    }
+
+    .root__content--no-delay {
+      animation: fade .5s forwards;
+      opacity: 0;
     }
 </style>
