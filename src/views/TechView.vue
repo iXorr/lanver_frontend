@@ -26,13 +26,13 @@
 <style scoped>
   .root {
     position: relative;
-    height: 2000px;
+    /* height: 2000px; */
 
     background: rgba(224, 255, 255, 0.422);
     border-radius: 15px;
   }
 
-    .appear-block {
+    /* .appear-block {
       display: flex;
       justify-content: center;
 
@@ -57,5 +57,5 @@
       width: 100%;
       height: 600px;
       top: 850px;
-    }
+    } */
 </style>

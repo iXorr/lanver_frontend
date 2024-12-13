@@ -7,6 +7,7 @@
   <header>
     <div class="branding">
       <img src="/public/img/logo.png" alt="logo">
+
       <p>ЛАНВЕР</p>
     </div>
 
@@ -22,7 +23,6 @@
 
 <style scoped>
   header {
-    
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -47,13 +47,19 @@
     }
 
     nav {
+      position: relative;
+
       display: flex;
       justify-content: space-between;
       align-items: center;
 
       width: 450px;
+      height: 75px;
       padding: 0 25px;
       border-radius: 15px;
+      border: 1px solid white;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
 
       nav > * {

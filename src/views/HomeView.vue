@@ -5,7 +5,7 @@
 
   setTimeout(() => {
     contentShow.value = true;
-  }, 500);
+  }, 350);
 </script>
 
 <template>
@@ -19,7 +19,7 @@
     </header>
 
     <section class="local-content">
-      
+      Something
     </section>
   </div>
 </template>

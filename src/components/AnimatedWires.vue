@@ -1,10 +1,8 @@
 <template>
-  <div class="wrapper">
-    <div class="lines">
+  <div class="lines">
     <div class="line"></div>
     <div class="line"></div>
     <div class="line"></div>
-  </div>
   </div>
 </template>
 
@@ -22,7 +20,7 @@
   .line {
     position: absolute;
     width: 1px;
-    height: 100%;
+    height: inherit;
     left: 50%;
     background: rgba(255, 255, 255, 0.1);
     overflow: hidden;
