@@ -37,7 +37,7 @@
     .root__header-line {
       width: 100%;
       height: 5px;
-      background: lightcyan;
+      background: rgba(224, 255, 255);
     }
 
   /* local animation */

@@ -1,4 +1,6 @@
 @import '~/fonts/montserrat.css';
+@import './animations.css';
+@import './media.css';
 
 *,
 *::before,
@@ -10,17 +12,13 @@
 }
 
 :root {
+	--page-height: 2000px;
+
 	--fast-transition: .25s ease;
 	--standart-transition: .5s ease-in-out;
+	--slow-transition: 1s ease-in-out;
 	
-	--icon-size: 30px;
-
-	--page-height: 2000px;
-}
-
-svg {
-	width: var(--icon-size);
-	height: var(--icon-size);
+	--icon-size: 1.25rem;
 }
 
 html {
@@ -31,72 +29,24 @@ html, body {
 	height: var(--page-height);
 }
 
-body {
-	background-image: url("/public/img/bg-4.png");
-	background-repeat: repeat-y;
-	background-attachment: fixed;
-	backdrop-filter: blur(50px);
-	background-size: cover;
-	animation: moving 35s linear infinite;
-	animation-fill-mode: forwards;
-}
-
-@keyframes moving {
-	0% {
-		background-position: 0% 0%;
+	body {
+		background-image: url("/public/img/bg-4.png");
+		background-repeat: repeat-y;
+		background-attachment: fixed;
+		backdrop-filter: blur(50px);
+		background-size: cover;
+		animation: moving 35s linear infinite;
+		animation-fill-mode: forwards;
 	}
 
-	100% {
-		background-position: 0% 300%;
-	}
-}
+		svg {
+			width: var(--icon-size);
+			height: var(--icon-size);
+		}
 
-input,
-select,
-textarea {
-	outline: none;
-	border: none;
-}
-
-/* vue animations */
-
-.slide-enter-active {
-  animation: slide 0.5s;
-}
-.slide-leave-active {
-  animation: slide 0.5s reverse;
-}
-
-@keyframes slide {
-  0% {
-    transform: translateY(-100%);
-  }
-
-  100% {
-		transform: translateY(0);
-  }
-}
-
-
-
-.fade-enter-active {
-	animation: fade 0.5s;
-}
-
-.fade-leave-active {
-	animation: fade 0.5s reverse;
-}
-
-@keyframes fade {
-	0% {
-		opacity: 0;
-	}
-
-	50% {
-		transform: scale(1.05);
-	}
-  
-	100% {
-		opacity: 1;
-	}
-  }
+		input,
+		select,
+		textarea {
+			outline: none;
+			border: none;
+		}

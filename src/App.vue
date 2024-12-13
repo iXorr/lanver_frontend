@@ -31,17 +31,18 @@
     </section>
   </main>
 
-  <AnimatedWires />
+  <!-- <AnimatedWires /> -->
 </template>
 
 <style scoped>
   .root {
     font-size: 1rem;
+    padding: 0 5%;
   }
 
-    .content {
+    /* .content {
       padding: 0 5%;
-    }
+    } */
 
       .router-content {
         color: white;
