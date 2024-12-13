@@ -1,72 +1,59 @@
 <script setup>
+  import { ref } from 'vue';
   import { RouterLink } from 'vue-router';
 
-  import SearchBar from '../ui/SearchBar.vue';
-  import { onMounted, ref } from 'vue';
-
-  const route = ref(null);
-
-  // onMounted(() => {
-  // });
-
-  function sayhi() {
-    route.value.style.color = "#000000";
-  }
+  import SearchBar from '@/components/ui/SearchBar.vue';
 </script>
 
 <template>
-  <nav class="header__nav">
-    <SearchBar @click="sayhi" />
+  <nav class="nav-bar">    
+    <SearchBar class="search-bar--child" />
 
-    <RouterLink to="/" class="router-link" ref="route">ГЛАВНАЯ</RouterLink>
-    <RouterLink to="/" class="router-link" >О КОМПАНИИ</RouterLink>
-    <RouterLink to="/tech-expert" class="router-link" >ВАКАНСИИ</RouterLink>
-    <RouterLink to="/codex" class="router-link" >ОТЗЫВЫ</RouterLink>
-    <RouterLink to="/tech-expert" class="router-link" >ПРОДУКТЫ</RouterLink>
+    <div class="nav-bar__links">
+      <RouterLink to="/" class="router-link">ГЛАВНАЯ</RouterLink>
+      <RouterLink to="/about" class="router-link" >О КОМПАНИИ</RouterLink>
+      <RouterLink to="/job" class="router-link" >ВАКАНСИИ</RouterLink>
+      <RouterLink to="/reviews" class="router-link" >ОТЗЫВЫ</RouterLink>
+      <RouterLink to="/products" class="router-link" >ПРОДУКТЫ</RouterLink>    
+    </div>
   </nav>
 </template>
 
 <style>
-  .header__nav {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+  .router-link:active,
+  .router-link:focus {
+    padding: 0 1.25rem;
+    transform: scale(1.15);
+    letter-spacing: 2px;
+    font-weight: 700;
+  }
+</style>
 
+<style scoped>
+  .nav-bar {
+    overflow: hidden;
+
+    position: relative;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-
     padding: 0.5rem;
-    border-radius: 15px;
+    border-radius: 0.5rem;
     border: 1px solid white;
   }
 
-    .header__nav > * {
+    .nav-bar__links {
+      padding: 0 0.25rem;
       display: flex;
-      justify-content: center;
       align-items: center;
-
-      text-decoration: none;
-      text-wrap: nowrap;
-
-      padding: 0 0.75rem;
-      border-radius: 0.1rem;
-      color: white;
-
-      font-size: 0.7rem;
 
       transition: var(--fast-transition);
     }
 
-    /* .router-link--search {
-      padding: 0;
-    } */
-
-
-
-    .router-link:active,
-    .router-link:focus {
-      transform: scale(1.15);
-      font-weight: 600;
-    }
+      .nav-bar__links .router-link {
+        padding: 0 1rem;
+        border-radius: 0.1rem;
+        text-decoration: none;
+        font-size: 0.7rem;
+        color: white;
+        transition: var(--fast-transition);
+      }
 </style>

@@ -3,7 +3,7 @@
   import { RouterView } from 'vue-router';
 
   import AnimatedWires from '@/components/AnimatedWires.vue';
-  import Header from '@/components/common/Header.vue';
+  import Header from '@/components/common/AppHeader.vue';
 
   // простая реализация очереди анимаций
   const firstShow = ref(false);
@@ -31,20 +31,15 @@
     </section>
   </main>
 
-  <!-- <AnimatedWires /> -->
+  <AnimatedWires />
 </template>
 
 <style scoped>
   .root {
-    font-size: 1rem;
     padding: 0 5%;
   }
 
-    /* .content {
-      padding: 0 5%;
-    } */
-
-      .router-content {
-        color: white;
-      }
+    .content {
+      color: white;
+    }
 </style>

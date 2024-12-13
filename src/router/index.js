@@ -1,9 +1,13 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '@/views/HomeView.vue'
-import TechView from '@/views/TechView.vue'
-import CodexView from '@/views/CodexView.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+import HomeView from '@/views/HomeView.vue';
+import AboutView from '@/views/AboutView.vue';
+import JobView from '@/views/JobView.vue';
+import ReviewsView from '@/views/ReviewsView.vue';
+import ProductsView from '@/views/ProductsView.vue';
 
-const defaultTitle = "Ланвер"
+import TechView from '@/views/TechView.vue';
+
+const defaultTitle = "Ланвер";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -16,24 +20,45 @@ const router = createRouter({
     },
 
     {
-      path: '/tech-expert',
-      name: 'tech-expert',
-      component: TechView,
-      meta: { title: defaultTitle + " - тех. эксперт" }
+      path: '/about',
+      name: 'about',
+      component: AboutView,
+      meta: { title: defaultTitle + " - о компании" }
     },
 
     {
-      path: '/codex',
-      name: 'codex',
-      component: CodexView,
-      meta: { title: defaultTitle + " - кодекс" }
+      path: '/job',
+      name: 'job',
+      component: JobView,
+      meta: { title: defaultTitle + " - вакансии" }
     },
+
+    {
+      path: '/reviews',
+      name: 'reviews',
+      component: ReviewsView,
+      meta: { title: defaultTitle + " - отзывы" }
+    },
+
+    {
+      path: '/products',
+      name: 'products',
+      component: ProductsView,
+      meta: { title: defaultTitle + " - продукты" }
+    },
+
+    // {
+    //   path: '/tech-expert',
+    //   name: 'tech-expert',
+    //   component: TechView,
+    //   meta: { title: defaultTitle + " - тех. эксперт" }
+    // }
   ],
-})
+});
 
 router.beforeEach((to, from, next) => {
   document.title = to.meta.title || defaultTitle;
   next();
-})
+});
 
 export default router

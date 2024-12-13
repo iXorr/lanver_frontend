@@ -4,8 +4,8 @@
 
 <template>
   <div class="local">
-    <LocalHeader title="Главная" />
+    <LocalHeader title="Отзывы" />
 
-    <section class="local__content">Добро пожаловать</section>
+    <section class="local__content">Нами довольны!</section>
   </div>
 </template>

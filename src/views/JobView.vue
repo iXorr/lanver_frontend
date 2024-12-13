@@ -4,8 +4,8 @@
 
 <template>
   <div class="local">
-    <LocalHeader title="Главная" />
+    <LocalHeader title="Вакансии" />
 
-    <section class="local__content">Добро пожаловать</section>
+    <section class="local__content">Вы можете найти у нас работу</section>
   </div>
 </template>

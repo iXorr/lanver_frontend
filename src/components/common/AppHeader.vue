@@ -5,8 +5,8 @@
 </script>
 
 <template>
-  <header>
-    <RouterLink to="/" class="router-link router-link--icon">
+  <header class="app-header">
+    <RouterLink to="/" class="router-link router-link--brand">
       <div class="branding">
         <img src="/public/img/logo.png" alt="logo">
         <p>ЛАНВЕР</p>
@@ -18,17 +18,15 @@
 </template>
 
 <style scoped>
-  header {
+  .app-header {
     display: flex;
+    justify-content: center;
     align-items: center;
-    
-    z-index: 2; 
-    top: 0;
-    padding-top: 35px;
-    margin-bottom: 50px;
+    padding-top: 1.5rem;
+    margin-bottom: 2.5rem;
   }
 
-    .branding {
+    .app-header .branding {
       display: flex;
       align-items: center;
       color: #fff;
@@ -36,18 +34,20 @@
       letter-spacing: 2.5px;
     }
 
-      .branding img {
-        width: 60px;
-        height: 45px;
-        margin-right: 20px;
+      .app-header .branding img {
+        width: 2.5rem;
+        height: 1.75rem;
+        margin-right: 0.85rem;
       }
 
-      .branding p {
+      .app-header .branding p {
         font-size: 1rem;
       }
 
-      .router-link--icon {
-        padding: 0;
-        margin: 0;
+      .app-header .router-link--brand {
+        margin-right: 3rem;
+
+        text-decoration: none;
+        transition: var(--fast-transition);
       }
 </style>
