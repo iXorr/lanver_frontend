@@ -31,6 +31,7 @@
 
 <style scoped>
   .nav-bar {
+    text-wrap: nowrap;
     overflow: hidden;
 
     position: relative;

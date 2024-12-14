@@ -13,7 +13,9 @@
   .local__header {
     display: flex;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    text-wrap: nowrap;
   }
 
     .local__header-text {
@@ -21,23 +23,9 @@
     }
 
     .local__header-line {
-      width: 100%;
-      height: 2px;
+      height: 3px;
       background: rgba(224, 255, 255);
-      box-shadow: 0 0 10px #fff;
-
-      opacity: 0;
+      box-shadow: 0 0 5px #fff;
       animation: push .5s forwards;
     }
-
-  @keyframes push {
-    0% {
-      width: 0;
-    }
-    
-    100% {
-      opacity: 1;
-      width: 100%;
-    }
-  }
 </style>

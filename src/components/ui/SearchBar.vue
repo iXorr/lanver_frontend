@@ -54,14 +54,9 @@
       height: 100%;
       left: 0;
       width: 0;
-      transition: .5s ease-in-out, color .35s ease-in-out;
+      transition: .5s ease, color .1s ease;
       color: transparent;
     }
-
-      .search-bar__field::placeholder {
-        color: transparent;
-        transition: color .35s ease-in-out;
-      }
 
     .search-bar__field--expanded {
       color: black;
@@ -69,8 +64,4 @@
       padding-right: 3.5rem;
       padding-left: 2.5rem;
     }
-
-      .search-bar__field--expanded::placeholder {
-        color: rgba(0, 0, 0, 0.5);
-      }
 </style>

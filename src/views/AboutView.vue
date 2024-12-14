@@ -1,11 +1,11 @@
 <script setup>
-  import LocalHeader from '@/components/common/LocalHeader.vue';
+  import InfoPage from './InfoPage.vue';
 </script>
 
 <template>
   <div class="local">
-    <LocalHeader title="О компании" />
-
-    <section class="local__content">И тут могут быть контакты</section>
+    <InfoPage />
   </div>
 </template>
+
+<style scoped></style>

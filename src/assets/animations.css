@@ -1,3 +1,11 @@
+.fade-enter-active {
+  animation: fade 0.5s;
+}
+
+.fade-leave-active {
+  animation: fade 0.5s reverse;
+}
+
 @keyframes bg-moving {
 	0% {
 		background-position: 0% 0%;
@@ -21,6 +29,9 @@
 
 @keyframes fade {
   0% {
+    background: red;
+    color: lightcyan;
+    text-shadow: 0 0 100px #fff;
   }
 
   50% {
@@ -29,5 +40,25 @@
 
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes real-fade {
+  0% {
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes push {
+  0% {
+    width: 0;
+  }
+  
+  100% {
+    opacity: 1;
+    width: 100%;
   }
 }
