@@ -1,11 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router';
+
 import HomeView from '@/views/HomeView.vue';
 import AboutView from '@/views/AboutView.vue';
 import JobView from '@/views/JobView.vue';
 import ReviewsView from '@/views/ReviewsView.vue';
 import ProductsView from '@/views/ProductsView.vue';
-
-import TechView from '@/views/TechView.vue';
 
 const defaultTitle = "Ланвер";
 
@@ -45,14 +44,7 @@ const router = createRouter({
       name: 'products',
       component: ProductsView,
       meta: { title: defaultTitle + " - продукты" }
-    },
-
-    // {
-    //   path: '/tech-expert',
-    //   name: 'tech-expert',
-    //   component: TechView,
-    //   meta: { title: defaultTitle + " - тех. эксперт" }
-    // }
+    }
   ],
 });
 

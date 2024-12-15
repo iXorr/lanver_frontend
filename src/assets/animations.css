@@ -6,6 +6,14 @@
   animation: fade 0.5s reverse;
 }
 
+.real-fade-enter-active {
+  animation: real-fade 0.5s;
+}
+
+.real-fade-leave-active {
+  animation: real-fade 0.5s reverse;
+}
+
 @keyframes bg-moving {
 	0% {
 		background-position: 0% 0%;

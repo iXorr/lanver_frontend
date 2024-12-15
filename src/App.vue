@@ -2,7 +2,7 @@
   import { ref } from 'vue';
   import { RouterView } from 'vue-router';
 
-  import AnimatedWires from '@/components/AnimatedWires.vue';
+  import AnimatedWires from '@/components/common/AnimatedWires.vue';
   import AppHeader from '@/components/common/AppHeader.vue';
 
   const isHeaderLoaded = ref(false);
