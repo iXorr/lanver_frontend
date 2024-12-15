@@ -13,7 +13,7 @@
   .local__header {
     display: flex;
     align-items: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     font-size: 1.25rem;
     text-wrap: nowrap;
   }

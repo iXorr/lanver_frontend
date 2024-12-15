@@ -29,8 +29,6 @@
 
 @keyframes fade {
   0% {
-    background: red;
-    color: lightcyan;
     text-shadow: 0 0 100px #fff;
   }
 
