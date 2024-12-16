@@ -5,7 +5,6 @@
   import CompanyInfo from '@/components/about-page/CompanyInfo.vue';
   import CompanyAmbitions from '@/components/about-page/CompanyAmbitions.vue';
   import CompanyPartners from '@/components/about-page/CompanyPartners.vue';
-
   import LocalHeader from '@/components/common/LocalHeader.vue';
 
   const skipAnimation = ref(false);

@@ -2,11 +2,9 @@
   import { ref } from 'vue';
   import { useRouter } from 'vue-router';
   import SearchGlassIcon from '@/components/icons/SearchGlassIcon.vue';
-  import SubmitIcon from '@/components/icons/SubmitIcon.vue';
 
   const isInputFocused = ref(false);
   const searchText = ref(null);
-  // const reactForm = ref(null);
  
   const router = useRouter();
   function handleInput() {
@@ -27,8 +25,6 @@
       :class="['search-bar__field', isInputFocused ? 'search-bar__field--expanded' : null]"
       @blur="isInputFocused = false"
       v-model="searchText">
-      
-    <SubmitIcon :class="['search-bar__submit', isInputFocused ? 'search-bar__submit--showed' : null]" @click="handleInput" />
   </form>
 </template>
 

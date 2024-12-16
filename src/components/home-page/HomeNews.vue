@@ -1,31 +1,41 @@
 <script setup>
-  import { ref, watch } from 'vue';
+  import { ref, watchEffect } from 'vue';
   import { useRoute } from 'vue-router';
+
+  import SpinLoader from '@/components/common/SpinLoader.vue';
+
   const route = useRoute();
 
   const API_KEY = '2545342d2b8844c2800cc86277295205';
-  const apiUrl = ref();
+  const apiUrl = ref(null);
+  const apiResponse = ref(null);
+  const searchText = ref(null);
 
-  const isSearch = ref(false);  
-  const searchText = ref(route.query.q);
-  const newsResponse = ref(null);
-
-  watch(route, async () => {
-    (route.query.q) ? isSearch.value = true : isSearch.value = false;
+  watchEffect(async () => {
+    apiResponse.value = null;
     searchText.value = route.query.q;
-    apiUrl.value = searchText.value 
-      ? `https://newsapi.org/v2/everything?q=${searchText.value}&apiKey=${API_KEY}` 
-      : null;
-    
-    newsResponse.value = await (await fetch(apiUrl.value)).json();
+
+    if (searchText.value) {
+      apiUrl.value = `https://newsapi.org/v2/everything?q=${searchText.value}&apiKey=${API_KEY}`;
+
+      setTimeout(async () => {
+        apiResponse.value = await (await fetch(apiUrl.value)).json();
+      }, 1500);
+    }
   });
 </script>
 
 <template>
   <div class="news">
-    <p>Поиск: {{ searchText }}</p>
-    <p>Результат: {{ newsResponse ? newsResponse : 'not ok' }}</p>
+    <div v-if="searchText">
+      <SpinLoader v-if="!apiResponse"/>
+    </div>
+
+    <p>Search Text: {{ searchText }}</p>
+
     <p>Запрос: {{ apiUrl }}</p>
+    <p>Ответ: {{ apiResponse }}</p>
+    <p>Ответ пришёл? - {{ apiResponse ? 'да' : 'нет' }}</p>
     <h1>Новости</h1>
 
     <div class="news-wrapper">
