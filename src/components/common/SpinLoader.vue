@@ -12,7 +12,6 @@
     margin: 1rem 0;
     display: flex;
     align-items: center;
-    animation: appear .25s;
   }
 
     .loader__text {
@@ -29,16 +28,6 @@
       box-sizing: border-box;
       animation: rotation 1s linear infinite;
     }
-
-  @keyframes appear {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
 
   @keyframes rotation {
     0% {

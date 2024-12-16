@@ -30,32 +30,12 @@
 </template>
 
 <style scoped>
-    .ambitions__btn {
-      height: fit-content;
-      align-self: center;
-      font-size: 1rem;
-      padding: 1rem;
-      color: white;
-      background: none;
-      border: 1px solid #fff;
-      border-radius: 0.5rem;
-      transition: var(--fast-transition);
-      cursor: pointer;
-      box-shadow: 0 10px 0 #fff;
-    }
-
-    .ambitions__btn:active {
-      transform: translateY(10px);
-      box-shadow: none;
-    }
-
-
   .expressed-text {
     font-weight: 700;
   }
 
   p {
-    text-align: center
+    text-align: center;
   }
 
   h1 {
@@ -71,6 +51,8 @@
   }
 
     .ambitions__list-item {
+      backdrop-filter: blur(1rem);
+
       user-select: none;
       cursor: pointer;
 

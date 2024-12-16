@@ -30,6 +30,8 @@
 
 <style scoped>
   .nav-bar {
+    backdrop-filter: blur(1rem);
+
     text-wrap: nowrap;
     overflow: hidden;
 

@@ -5,6 +5,7 @@ import AboutView from '@/views/AboutView.vue';
 import JobView from '@/views/JobView.vue';
 import ReviewsView from '@/views/ReviewsView.vue';
 import ProductsView from '@/views/ProductsView.vue';
+import ResearchView from '@/views/ResearchView.vue';
 
 const defaultTitle = "Ланвер";
 
@@ -44,6 +45,13 @@ const router = createRouter({
       name: 'products',
       component: ProductsView,
       meta: { title: defaultTitle + " - продукты" }
+    },
+
+    {
+      path: '/research',
+      name: 'research',
+      component: ResearchView,
+      meta: { title: defaultTitle + " - результаты поиска" }
     }
   ],
 });

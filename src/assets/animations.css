@@ -14,6 +14,20 @@
   animation: real-fade 0.5s reverse;
 }
 
+@keyframes fadeAndShrink {
+  0% {
+    text-shadow: 0 0 100px #fff;
+  }
+
+  50% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 @keyframes bg-moving {
 	0% {
 		background-position: 0% 0%;

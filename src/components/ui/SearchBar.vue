@@ -8,7 +8,7 @@
  
   const router = useRouter();
   function handleInput() {
-    router.push(`/?q=${searchText.value}`);
+    router.push(`/research?q=${searchText.value}`);
     isInputFocused.value = false;
   }
 </script>

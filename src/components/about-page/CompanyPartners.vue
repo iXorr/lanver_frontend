@@ -65,6 +65,8 @@
       }
 
     .partners__offer-btn {
+      backdrop-filter: blur(1rem);
+
       opacity: 0;
       height: fit-content;
       align-self: center;

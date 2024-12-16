@@ -31,12 +31,12 @@
         <h1>Введите ваши данные</h1>
 
         <div class="field-elem">
-          <input type="text" placeholder="Имя" v-model="user_name" required id="name">
+          <input type="text" placeholder="Имя" v-model="user_name" required id="name" autocomplete="off">
           <label for="name">Имя</label>
         </div>
 
         <div class="field-elem">
-          <input type="email" placeholder="Имя" v-model="user_email" required id="email">
+          <input type="email" placeholder="Имя" v-model="user_email" required id="email" autocomplete="off">
           <label for="email">Почта</label>
         </div>
 
@@ -62,7 +62,7 @@
 
   .field-elem input {
     width: 100%;
-    border: 1px solid #999;
+    border: 1px solid #555;
     padding: 0.75rem;
     font-size: 1rem;
     border-radius: 0.25rem;
@@ -77,7 +77,7 @@
     left: 0.5rem;
     top: 0.5rem;
     transition: 0.2s ease all;
-    color: #aaa;
+    color: #999;
   }
 
   .field-elem input:focus + label,

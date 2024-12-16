@@ -48,6 +48,7 @@
       }
 
     .stats {
+      backdrop-filter: blur(1rem);
       overflow: hidden;
       border: 2px solid #fff;
       border-radius: 1rem;
