@@ -1,15 +1,17 @@
 <script setup>
-  import { RouterLink } from 'vue-router';
-
   import LocalHeader from '@/components/common/LocalHeader.vue';
+
+  import HomeNews from '@/components/home-page/HomeNews.vue';
 </script>
 
 <template>
   <div class="local">
     <LocalHeader title="Главная" />
 
-    <section class="local__content">Добро пожаловать</section>
+    <p>{{ searchText }}</p>
 
-    <RouterLink to="/job" style="color: white;">РАБОТА</RouterLink>
+    <div class="local__content">
+      <HomeNews class="local__content-elem" />
+    </div>  
   </div>
 </template>

@@ -1,5 +1,5 @@
 <script setup>
-  import { onMounted } from 'vue';
+  import { ref, onMounted, watchEffect } from 'vue';
   import gsap from 'gsap';
 
   import CompanyInfo from '@/components/about-page/CompanyInfo.vue';
@@ -8,17 +8,31 @@
 
   import LocalHeader from '@/components/common/LocalHeader.vue';
 
+  const skipAnimation = ref(false);
+
   onMounted(() => {
-    const about_tl = gsap
-      .timeline()
-      .fromTo('.local__elem-info', { opacity: 0, scale: 0.85 }, { scale: 1, delay: .5, duration: .35, opacity: 1 })
+    window.addEventListener('scroll', () => skipAnimation.value = true);
+
+    const about_tl = gsap.timeline();
+    about_tl
+      .fromTo('.info-elem', { opacity: 0, scale: 0.85 }, { scale: 1, delay: .5, duration: .35, opacity: 1 })
       .fromTo('.stats__elem', { opacity: 0, y: 250 }, { opacity: 1, y: 0, stagger: .25 })
       .fromTo('.ambitions__header', { opacity: 0, x: -100 }, { opacity: 1, x: 0 })
       .fromTo('.ambitions__list-item', { opacity: 0 }, { opacity: 1, stagger: .35 })
       .fromTo('.partners__header', { opacity: 0 }, { opacity: 1 })
       .fromTo('.partners__img-container', { opacity: 0 }, { opacity: 1 })
       .fromTo('.partners__img', { opacity: 0, x: -100 }, { opacity: 1, x: 0, stagger: .25 })
-      .to('.partners__offer-btn', { opacity: 1 })
+      .to('.partners__offer-btn', { opacity: 1 });
+
+    watchEffect(() => {
+      if (skipAnimation.value) {
+        about_tl.timeScale(4);
+      }
+    });
+
+    return () => {
+      window.removeEventListener('scroll');
+    };
   }); 
 </script>
 
@@ -27,23 +41,23 @@
     <LocalHeader title="О нас" />
 
     <div class="local__content">
-      <CompanyInfo class="local__elem local__elem-info" />
+      <CompanyInfo class="local__content-elem info-elem" />
 
-      <div class="test-wrapper">
-        <CompanyAmbitions class="local__elem ambitions-elem"/>
-        <CompanyPartners class="local__elem partners-elem" />
+      <div class="local__flex-wrapper">
+        <CompanyAmbitions class="local__content-elem ambitions-elem"/>
+        <CompanyPartners class="local__content-elem partners-elem" />
       </div>
     </div>
   </div>
 </template>
 
-<style scoped>
+<style>
   .local__content > * {
     margin-bottom: 1.5rem;
   }
 
-  .test-wrapper {
-    display: flex;
-    justify-content: space-between;
-  }
+    .local__flex-wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
 </style>

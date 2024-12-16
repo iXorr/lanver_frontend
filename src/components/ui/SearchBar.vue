@@ -1,12 +1,22 @@
 <script setup>
   import { ref } from 'vue';
+  import { useRouter } from 'vue-router';
   import SearchGlassIcon from '@/components/icons/SearchGlassIcon.vue';
+  import SubmitIcon from '@/components/icons/SubmitIcon.vue';
 
   const isInputFocused = ref(false);
+  const searchText = ref(null);
+  // const reactForm = ref(null);
+ 
+  const router = useRouter();
+  function handleInput() {
+    router.push(`/?q=${searchText.value}`);
+    isInputFocused.value = false;
+  }
 </script>
 
 <template>
-  <div class="search-bar">
+  <form class="search-bar" @submit.prevent="handleInput" ref="reactForm">
     <SearchGlassIcon 
       :class="['search-bar__icon', isInputFocused ? 'search-bar__icon--dark' : null]" 
       @click="isInputFocused = !isInputFocused" />
@@ -15,11 +25,37 @@
       type="text"
       placeholder="Введите текст для поиска" 
       :class="['search-bar__field', isInputFocused ? 'search-bar__field--expanded' : null]"
-      @blur="isInputFocused = false">
-  </div>
+      @blur="isInputFocused = false"
+      v-model="searchText">
+      
+    <SubmitIcon :class="['search-bar__submit', isInputFocused ? 'search-bar__submit--showed' : null]" @click="handleInput" />
+  </form>
 </template>
 
 <style scoped>
+  .search-bar__submit {
+    width: 1.5rem;
+    height: 1.5rem;
+
+    cursor: pointer;
+
+    overflow: 0;
+    top: -100%;
+    position: absolute;
+    right: 1rem;
+    transition: var(--fast-transition);
+  }
+
+  .search-bar__submit:active * {
+    stroke: black;
+  }
+
+  .search-bar__submit--showed {
+    opacity: 1;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
   .search-bar {
     display: flex;
     justify-content: center;
