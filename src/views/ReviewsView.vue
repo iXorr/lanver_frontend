@@ -108,7 +108,7 @@
       </div>
 
       <form @submit.prevent="addReview" class="feedback-form">
-        <h1>Оставить свой</h1>
+        <h1>Оставить свой отзыв</h1>
 
         <input v-model="newName" placeholder="Ваше имя" required />
         <textarea v-model="newComment" placeholder="Ваш отзыв" required></textarea>

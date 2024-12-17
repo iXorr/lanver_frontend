@@ -21,6 +21,7 @@
 }
 
 html {
+	scrollbar-width: none;
 	font-size: 24px;
 }
 

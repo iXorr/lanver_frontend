@@ -152,5 +152,7 @@
         height: 20rem;
         border: 1px solid #fff;
         border-radius: 1rem;
+
+        scrollbar-width: none;
       }
 </style>
