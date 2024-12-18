@@ -1,5 +1,5 @@
 <script setup>
-  import { ref, watch, watchEffect } from 'vue';
+  import { ref } from 'vue';
   import NewsItem from './NewsItem.vue';
 
   const newsItems = ref([
@@ -74,7 +74,7 @@
     </div>
 
     <div class="news-selector">
-      <h2 class="news-selector__header">Новости</h2>
+      <h2 class="news-selector__header">Новости из IT</h2>
       
       <div class="news-list">
         <NewsItem

@@ -6,14 +6,6 @@
   animation: fade 0.5s reverse;
 }
 
-.real-fade-enter-active {
-  animation: real-fade 0.5s;
-}
-
-.real-fade-leave-active {
-  animation: real-fade 0.5s reverse;
-}
-
 @keyframes fadeAndShrink {
   0% {
     text-shadow: 0 0 100px #fff;
@@ -56,15 +48,6 @@
 
   50% {
     transform: scale(1.05);
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes real-fade {
-  0% {
   }
 
   100% {

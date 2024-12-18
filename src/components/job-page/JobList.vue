@@ -16,23 +16,21 @@
 
 <template>
   <div class="job-content">
-    <!-- <transition-group name="list" tag="div" class="job-list"> -->
-      <div class="job-list">
-        <a 
-        v-for="job in filteredJobs"
-        :key="job.id"
-        class="job-list__item"
-        href="#">
+    <div class="job-list">
+      <a 
+      v-for="job in filteredJobs"
+      :key="job.id"
+      class="job-list__item"
+      href="#">
 
-          <div class="base-info">
-            <h2>{{ job.title }}</h2>
-            <p>{{ job.description }}</p>
-          </div>
+        <div class="base-info">
+          <h2>{{ job.title }}</h2>
+          <p>{{ job.description }}</p>
+        </div>
 
-          <div class="salary-info">{{ job.salary }} <br> в месяц</div>
-        </a>
-      </div>
-    <!-- </transition-group> -->
+        <div class="salary-info">{{ job.salary }} <br> в месяц</div>
+      </a>
+    </div>
 
     <JobFilter @select='handleSelect' @getJobs="getFilteredJobs" />
   </div>

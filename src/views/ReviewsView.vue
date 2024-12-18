@@ -37,8 +37,7 @@
       reviews.value.push(newReview);
       newName.value = '';
       newComment.value = '';
-      // Обновляем количество страниц при добавлении нового отзыва
-      currentPage.value = totalPages.value; // Переключаемся на последнюю страницу
+      currentPage.value = totalPages.value;
     }
   };
 
@@ -183,6 +182,8 @@
   padding: 0.5rem 1rem;
   border-radius: 5px;
   border: 1px solid #ccc;
+  background: none;
+  color: #fff;
 }
 
 .feedback-form textarea {
@@ -191,18 +192,24 @@
 }
 
 .feedback-form button {
+  backdrop-filter: blur(1rem);
+  width: 12.5rem;
+  /* align-self: center; */
+  justify-self: start;
   font-size: 1rem;
-  padding: 0.5rem 1rem;
-  background-color: #0386C8;
+  padding: 1rem;
   color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  background: none;
+  border: 1px solid #fff;
+  border-radius: 0.5rem;
   transition: var(--fast-transition);
+  cursor: pointer;
+  box-shadow: 0 10px 0 #fff;
 }
 
-.feedback-form button:hover {
-  background-color: #0164A4;
+.feedback-form button:active {
+  transform: translateY(10px);
+  box-shadow: none;
 }
 
 .pagination {
@@ -259,5 +266,4 @@
     transform: scale(1);
   }
 }
-
 </style>

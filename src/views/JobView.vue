@@ -12,9 +12,10 @@
 
     const job_tl = gsap
       .timeline()
-      .fromTo('.job-content', { opacity: 0 }, { delay: .1, opacity: 1 })
-      .fromTo('.job-list', { opacity: 0, x: -50 }, { x: 0, opacity: 1, rotate: 0})
-      .fromTo('.job-filter', { opacity: 0, x: 25 }, { x: 0, duration: .5, opacity: 1 });
+      .fromTo('.job-content', { opacity: 0 }, { opacity: 1, duration: .2 })
+      .fromTo('.job-list', { opacity: 0 }, { opacity: 1, duration: .2 })
+      .fromTo('.job-list__item', { opacity: 0 }, { opacity: 1, stagger: .2 })
+      .fromTo('.job-filter', { opacity: 0, x: 50 }, { x: 0, delay: .5, duration: .35, opacity: 1 });
 
     watchEffect(() => {
       if (skipAnimation.value) {
