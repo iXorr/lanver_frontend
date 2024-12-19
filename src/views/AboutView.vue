@@ -1,5 +1,5 @@
 <script setup>
-  import { ref, onMounted, watchEffect } from 'vue';
+  import { ref, onMounted, watchEffect, inject } from 'vue';
   import gsap from 'gsap';
 
   import CompanyInfo from '@/components/about-page/CompanyInfo.vue';
@@ -7,11 +7,9 @@
   import CompanyPartners from '@/components/about-page/CompanyPartners.vue';
   import LocalHeader from '@/components/common/LocalHeader.vue';
 
-  const skipAnimation = ref(false);
+  const toggleSkipAnimation = inject('toggleSkipAnimation');
 
   onMounted(() => {
-    window.addEventListener('scroll', () => skipAnimation.value = true);
-
     const about_tl = gsap.timeline();
     about_tl
       .fromTo('.info-elem', { opacity: 0, scale: 0.85 }, { scale: 1, delay: .5, duration: .25, opacity: 1 })
@@ -23,15 +21,7 @@
       .fromTo('.partners__img', { opacity: 0, x: -100 }, { opacity: 1, x: 0, stagger: .15 })
       .to('.partners__offer-btn', { opacity: 1 });
 
-    watchEffect(() => {
-      if (skipAnimation.value) {
-        about_tl.timeScale(3);
-      }
-    });
-
-    return () => {
-      window.removeEventListener('scroll');
-    };
+    watchEffect(() => { toggleSkipAnimation(about_tl); });
   }); 
 </script>
 

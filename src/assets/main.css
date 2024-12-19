@@ -1,6 +1,5 @@
 @import '~/fonts/montserrat.css';
 @import './animations.css';
-@import './media.css';
 
 *,
 *::before,
@@ -12,8 +11,6 @@
 }
 
 :root {
-	--page-height: 2000px;
-
 	--fast-transition: .25s ease;
 	--standart-transition: .5s ease-in-out;
 	--slow-transition: 1s ease-in-out;
@@ -22,22 +19,26 @@
 }
 
 html {
-	scrollbar-width: none;
 	font-size: 24px;
 }
 
-html, body {
-	height: var(--page-height);
-}
 
-	body {
+	html {
 		background-image: url("~/img/default-bg.png");
 		background-repeat: repeat-y;
 		background-attachment: fixed;
-		backdrop-filter: blur(50px);
 		background-size: cover;
 		animation: bg-moving 35s linear infinite;
 		animation-fill-mode: forwards;
+	}
+
+	html::before {
+		backdrop-filter: blur(50px);
+		position: absolute;
+		content: '';
+		width: 100%;
+		height: 100%;
+		z-index: -1;
 	}
 
 		svg {

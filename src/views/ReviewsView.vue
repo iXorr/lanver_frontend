@@ -1,7 +1,7 @@
 <script setup>
   import LocalHeader from '@/components/common/LocalHeader.vue';
 
-  import { ref, computed, onMounted, watchEffect} from 'vue';
+  import { ref, computed, onMounted, watchEffect, inject } from 'vue';
   import gsap from 'gsap';
 
   const reviews = ref([
@@ -53,11 +53,9 @@
     }
   };
 
-  const skipAnimation = ref(false);
+  const toggleSkipAnimation = inject('toggleSkipAnimation');
 
   onMounted(() => {
-    window.addEventListener('scroll', () => skipAnimation.value = true);
-
     const reviews_tl = gsap
       .timeline()
       .fromTo('.feedback', { opacity: 0 }, { opacity: 1 })
@@ -65,15 +63,7 @@
       .fromTo('.feedback-item', { opacity: 0 }, { opacity: 1, stagger: .25 })
       .fromTo('.feedback-form', { opacity: 0, x: -25 }, { opacity: 1, x: 0 });
 
-    watchEffect(() => {
-      if (skipAnimation.value) {
-        reviews_tl.timeScale(3);
-      }
-    });
-
-    return () => {
-      window.removeEventListener('scroll');
-    };
+    watchEffect(() => { toggleSkipAnimation(reviews_tl); });
   }); 
 </script>
 
@@ -146,6 +136,7 @@
 }
 
 .feedback-item {
+  opacity: 0;
   border: 1px solid #fff;
   border-radius: .5rem;
   padding: 1rem;

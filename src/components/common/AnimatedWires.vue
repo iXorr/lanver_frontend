@@ -12,18 +12,18 @@
     top: 0;
     left: 0;
     right: 0;
+    z-index: -1;
     height: 100%;
     margin: auto;
-    z-index: -1;
   }
 
   .line {
     position: absolute;
+    left: 50%;
+    overflow: hidden;
     width: 1px;
     height: inherit;
-    left: 50%;
     background: rgba(255, 255, 255, 0.1);
-    overflow: hidden;
   }
 
   .line::after {
